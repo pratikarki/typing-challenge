@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { lorem } from 'faker';
+import { loremIpsum } from 'lorem-ipsum';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { lorem } from 'faker';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  randomText = lorem.sentence();
+  randomText = loremIpsum({ sentenceLowerBound: 5, sentenceUpperBound: 9 });
   enteredText = '';
   userTime = '';
   displayTime = '';
@@ -18,18 +18,18 @@ export class AppComponent {
     const value = (event.target as HTMLInputElement).value;
     // console.log(this.randomText);
 
-    if (this.enteredText === '' && this.displayWord !== 'Yout are a Cheater!') {
+    if (this.enteredText === '' && this.displayWord !== 'You are a Cheater!') {
       this.userTime = Date.now().toString();
     }
 
     if (value === this.randomText) {
       this.isSuccess = true;
-      if (this.displayWord === 'Yout are a Cheater!' || this.displayWord === 'Once a Cheater, Always a cheater!') {
+      if (this.displayWord === 'You are a Cheater!' || this.displayWord === 'Once a Cheater, Always a cheater!') {
         this.displayWord = 'Once a Cheater, Always a cheater!';
       }
       else {
         this.displayTime = this.convertMillisToMinutesAndSeconds(Date.now() - parseInt(this.userTime));
-        this.displayWord = (this.displayTime === '0:00')? 'Yout are a Cheater!' : 'Well Done!';
+        this.displayWord = (this.displayTime === '0:00')? 'You are a Cheater!' : 'Well Done!';
       }
     }
     else {
