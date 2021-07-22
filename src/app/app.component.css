@@ -1,0 +1,26 @@
+.box-pad {
+  padding-top: 1.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .box-pad {
+    padding-left: 1.5rem;
+  }
+}
+
+.text {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.pending {
+  color: gray;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
